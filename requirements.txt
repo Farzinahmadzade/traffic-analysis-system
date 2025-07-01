@@ -1,0 +1,5 @@
+folium==0.20.0
+pandas==2.3.0
+osmnx==2.0.4
+scikit-learn==1.7.0
+networkx==3.4.2
