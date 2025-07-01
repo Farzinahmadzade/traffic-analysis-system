@@ -42,7 +42,7 @@ class TrafficManager:
     Manages fetching network data, simulating traffic, and identifying traffic hot zones.
     """
 
-    def __init__(self, place: str = "Tehran, Iran"):
+    def __init__(self, place: str):
         self.place = place
         self.graph: nx.Graph | None = None
         self.nodes: pd.DataFrame | None = None
@@ -55,7 +55,7 @@ class TrafficManager:
     def initialize_network(self):
         """Fetches and initializes the street network graph for the specified place."""
         try:
-            logger.info(f"Fetching network data for {self.place}...")
+            logger.info(f"Fetching network data for {self.place} from OpenStreetMap...")
             self.graph = ox.graph_from_place(self.place, network_type="drive")
             self.nodes, self.edges = ox.graph_to_gdfs(self.graph)
             logger.info("Network data initialized successfully.")
@@ -189,7 +189,7 @@ def create_traffic_map(
 def main():
     """Main execution function to run the traffic analysis."""
     try:
-        traffic_manager = TrafficManager()
+        traffic_manager = TrafficManager(place="Tehran, Iran")
         traffic_manager.initialize_network()
         zone_data = traffic_manager.identify_hot_zones()
         recommendations = traffic_manager.get_zone_recommendations()

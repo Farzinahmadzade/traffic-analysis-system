@@ -2,6 +2,8 @@
 
 A Python-based system for simulating, analyzing, and visualizing urban traffic patterns, with a focus on Tehran, Iran. The project leverages real-world map data, clustering, and interactive mapping to identify traffic hot zones and suggest alternative routes.
 
+This code is designed as a foundational framework that can be integrated with Snapp's traffic services. While it currently uses simulated data, it is structured to be easily replaceable with real data from Snapp or other sources.
+
 ## Features
 
 - **Street Network Analysis:** Automatically fetches and processes the street network of Tehran (or any specified city).
